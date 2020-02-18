@@ -1,6 +1,7 @@
 package com.example.recyclerviewimage;
 import android.os.Parcel;
 import android.os.Parcelable;
+//Parcelable Ruslan раскажет
 
 public class SpacePhoto implements Parcelable {
 

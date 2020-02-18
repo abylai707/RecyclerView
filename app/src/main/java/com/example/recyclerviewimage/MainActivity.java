@@ -15,12 +15,19 @@ import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
 
+//DZ
+//Add menu (up)
+
+//RecyclerView (МИНИМ ПРОЕКТ СДЕЛАТЬ) 30 минут
+//Adapter Recycler - (Напиши Руслан)
+
 public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
 
         RecyclerView.LayoutManager layoutManager = new GridLayoutManager(this, 2);
         RecyclerView recyclerView = (RecyclerView) findViewById(R.id.rv_images);
