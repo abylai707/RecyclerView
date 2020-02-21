@@ -9,11 +9,20 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.provider.ContactsContract;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
+
+//DZ
+//Add menu (up)
+
+//RecyclerView (МИНИМ ПРОЕКТ СДЕЛАТЬ) 30 минут
+//Adapter Recycler - (Напиши Руслан)
 
 public class MainActivity extends AppCompatActivity {
 
@@ -21,6 +30,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
 
         RecyclerView.LayoutManager layoutManager = new GridLayoutManager(this, 2);
         RecyclerView recyclerView = (RecyclerView) findViewById(R.id.rv_images);
@@ -31,6 +41,47 @@ public class MainActivity extends AppCompatActivity {
         recyclerView.setAdapter(adapter);
 
     }
+
+    public boolean onCreateOptionsMenu (Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_main, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected (MenuItem item) {
+
+      int id = item.getItemId();
+
+     /* if (id == R.id.action_settings) {
+          Toast.makeText(MainActivity.this, getString(R.string.action_settings), Toast.LENGTH_LONG).show();
+      } else if (id == R.id.action_item1) {
+          Toast.makeText(MainActivity.this, getString(R.string.action_item1), Toast.LENGTH_LONG).show();
+      } else if (id == R.id.action_item2) {
+          Toast.makeText(MainActivity.this, getString(R.string.action_item2), Toast.LENGTH_LONG).show();
+      }else if (id == R.id.action_item3) {
+          Toast.makeText(MainActivity.this, getString(R.string.action_item3), Toast.LENGTH_LONG).show();
+      }*/
+
+     switch (id) {
+         case R.id.action_settings:
+             Toast.makeText(MainActivity.this, getString(R.string.action_settings), Toast.LENGTH_LONG).show();
+             break;
+         case R.id.action_item1:
+             Toast.makeText(MainActivity.this, getString(R.string.action_item1), Toast.LENGTH_LONG).show();
+             break;
+
+         case R.id.action_item2:
+             Toast.makeText(MainActivity.this, getString(R.string.action_item2), Toast.LENGTH_LONG).show();
+             break;
+
+         case R.id.action_item3:
+             Toast.makeText(MainActivity.this, getString(R.string.action_item3), Toast.LENGTH_LONG).show();
+             break;
+     }
+      return super.onOptionsItemSelected(item);
+    }
+
+
     private class ImageGalleryAdapter extends RecyclerView.Adapter<ImageGalleryAdapter.MyViewHolder>  {
 
         @Override
@@ -51,6 +102,7 @@ public class MainActivity extends AppCompatActivity {
                     .load(spacePhoto.getUrl())
                     .placeholder(R.drawable.ic_launcher_background)
                     .into(imageView);
+
         }
 
         @Override
